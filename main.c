@@ -132,3 +132,38 @@ void cityMenu() {
         }
     }
 }
+
+void addCity() {
+    int i;
+    char newCity[50];
+
+    if(cityCount >= MAX_CITIES) {
+        printf("\nCannot add more cities! Maximum limit is 30.\n");
+        return;
+    }
+
+    printf("\nEnter city name: ");
+    scanf("%s", newCity);
+
+
+    for(i = 0; i < cityCount; i++) {
+        if(strcasecmp(cities[i], newCity) == 0) {
+            printf("This city already exists!\n");
+            return;
+        }
+    }
+
+
+    strcpy(cities[cityCount], newCity);
+
+
+    for(i = 0; i <= cityCount; i++) {
+        distances[cityCount][i] = 0;
+        distances[i][cityCount] = 0;
+    }
+
+    cityCount++;
+    printf("City '%s' added successfully!\n", newCity);
+    printf("Total cities: %d\n", cityCount);
+}
+
