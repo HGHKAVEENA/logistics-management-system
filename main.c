@@ -203,4 +203,32 @@ void removeCity() {
     printf("City removed! Total cities: %d\n", cityCount);
 }
 
+void renameCity() {
+
+    int cityNum;
+    char newName[50];
+
+    if(cityCount == 0) {
+        printf("\nNo cities to rename!\n");
+        return;
+    }
+
+    showCities();
+    printf("\nEnter city number to rename: ");
+    scanf("%d", &cityNum);
+
+    if(cityNum < 1 || cityNum > cityCount) {
+        printf("Invalid city number!\n");
+        return;
+    }
+
+    cityNum = cityNum - 1;
+
+    printf("Enter new name for '%s': ", cities[cityNum]);
+    scanf("%s", newName);
+
+    strcpy(cities[cityNum], newName);
+    printf("City renamed successfully!\n");
+}
+
 
