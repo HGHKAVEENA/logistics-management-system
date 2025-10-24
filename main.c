@@ -473,3 +473,32 @@ void createDelivery()
 
 
 
+     strcpy(deliverySource[deliveryCount], cities[from]);
+
+    strcpy(deliveryDestination[deliveryCount], cities[to]);
+
+    deliveryDistance[deliveryCount] = distances[from][to];
+
+    deliveryWeight[deliveryCount] = weight;
+
+    strcpy(deliveryVehicle[deliveryCount], vehicleTypes[vehicleChoice]);
+
+    deliveryCost[deliveryCount] = baseCost;
+
+    fuelCost[deliveryCount] = fCost;
+
+    totalCost[deliveryCount] = tCost;
+
+    profit[deliveryCount] = prof;
+
+    customerCharge[deliveryCount] = charge;
+
+    estimatedTime[deliveryCount] = time;
+
+    deliveryCount++;
+
+    printf("\nDelivery saved! Total deliveries: %d\n", deliveryCount);
+}
+
+
+
