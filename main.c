@@ -334,3 +334,26 @@ void showDistances() {
     }
 }
 
+void vehicleMenu() {
+    int i;
+    char dummy;
+
+    printf("\n--- VEHICLE INFORMATION ---\n");
+    printf("%-10s %-15s %-15s %-15s %-15s\n",
+           "Type", "Capacity(kg)", "Rate(LKR/km)", "Speed(km/h)", "Efficiency(km/l)");
+
+
+    for(i = 0; i < 3; i++) {
+        printf("%-10s %-15d %-15d %-15d %-15d\n",
+               vehicleTypes[i], vehicleCapacity[i], vehicleRate[i],
+               vehicleSpeed[i], vehicleEfficiency[i]);
+    }
+
+    printf("\nPress Enter to continue...");
+    scanf("%c", &dummy);
+}
+
+void deliveryMenu() {
+    createDelivery();
+}
+
