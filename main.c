@@ -357,7 +357,9 @@ void deliveryMenu() {
     createDelivery();
 }
 
-void createDelivery() {
+
+void createDelivery()
+ {
     int from, to, weight, vehicleChoice;
     double baseCost, fuelUsed, fCost, tCost, prof, charge, time;
 
@@ -368,6 +370,31 @@ void createDelivery() {
 
     if(deliveryCount >= MAX_DELIVERIES) {
         printf("\nMaximum delivery limit reached!\n");
+        return;
+    }
+
+    showCities();
+
+    printf("\nEnter source city number: ");
+    scanf("%d", &from);
+    printf("Enter destination city number: ");
+    scanf("%d", &to);
+
+    if(from < 1 || from > cityCount || to < 1 || to > cityCount) {
+        printf("Invalid city numbers!\n");
+        return;
+    }
+
+    if(from == to) {
+        printf("Source and destination cannot be same!\n");
+        return;
+    }
+
+    from = from - 1;
+    to = to - 1;
+
+    if(distances[from][to] == 0) {
+        printf("Distance not set between these cities!\n");
         return;
     }
 
