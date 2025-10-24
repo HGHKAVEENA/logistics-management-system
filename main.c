@@ -246,3 +246,29 @@ void showCities() {
     printf("Total: %d cities\n", cityCount);
 }
 
+void distanceMenu() {
+    int choice;
+
+    while(1) {
+        printf("\n--- DISTANCE MANAGEMENT ---\n");
+        printf("1. Input/Edit distance\n");
+        printf("2. Show distance table\n");
+        printf("3. Back to main menu\n");
+        printf("Enter choice: ");
+        scanf("%d", &choice);
+
+        if(choice == 1) {
+            inputDistance();
+        }
+        else if(choice == 2) {
+            showDistances();
+        }
+        else if(choice == 3) {
+            break;
+        }
+        else {
+            printf("Invalid choice!\n");
+        }
+    }
+}
+
