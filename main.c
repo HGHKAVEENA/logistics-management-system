@@ -357,3 +357,17 @@ void deliveryMenu() {
     createDelivery();
 }
 
+void createDelivery() {
+    int from, to, weight, vehicleChoice;
+    double baseCost, fuelUsed, fCost, tCost, prof, charge, time;
+
+    if(cityCount < 2) {
+        printf("\nYou need at least 2 cities!\n");
+        return;
+    }
+
+    if(deliveryCount >= MAX_DELIVERIES) {
+        printf("\nMaximum delivery limit reached!\n");
+        return;
+    }
+
