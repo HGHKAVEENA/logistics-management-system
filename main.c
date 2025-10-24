@@ -430,4 +430,46 @@ void createDelivery()
         return;
     }
 
+    baseCost = distances[from][to] * vehicleRate[vehicleChoice] * (1.0 + (double)weight / 10000.0);
+
+    time = (double)distances[from][to] / vehicleSpeed[vehicleChoice];
+
+    fuelUsed = (double)distances[from][to] / vehicleEfficiency[vehicleChoice];
+
+    fCost = fuelUsed * 310.0;
+
+    tCost = baseCost + fCost;
+
+    prof = tCost * 0.25;
+
+    charge = tCost + prof;
+
+
+    printf("         DELIVERY COST ESTIMATION\n");
+
+    printf("From: %s\n", cities[from]);
+
+    printf("To: %s\n", cities[to]);
+
+    printf("Distance: %d km\n", distances[from][to]);
+
+    printf("Vehicle: %s\n", vehicleTypes[vehicleChoice]);
+
+    printf("Weight: %d kg\n", weight);
+
+    printf("----------------------------------------------------\n");
+
+    printf("Base Cost: %.2f LKR\n", baseCost);
+
+    printf("Fuel Cost: %.2f LKR\n", fCost);
+
+    printf("Total Cost: %.2f LKR\n", tCost);
+
+    printf("Profit: %.2f LKR\n", prof);
+
+    printf("Customer Charge: %.2f LKR\n", charge);
+
+    printf("Estimated Time: %.2f hours\n", time);
+
+
 
