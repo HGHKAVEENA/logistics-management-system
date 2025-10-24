@@ -272,3 +272,40 @@ void distanceMenu() {
     }
 }
 
+void inputDistance() {
+    int from, to, distance;
+
+    if(cityCount < 2) {
+        printf("\nYou need at least 2 cities!\n");
+        return;
+    }
+
+    showCities();
+
+    printf("\nEnter source city number: ");
+    scanf("%d", &from);
+    printf("Enter destination city number: ");
+    scanf("%d", &to);
+
+    if(from < 1 || from > cityCount || to < 1 || to > cityCount) {
+        printf("Invalid city numbers!\n");
+        return;
+    }
+
+    if(from == to) {
+        printf("Source and destination cannot be same!\n");
+        return;
+    }
+
+    printf("Enter distance in km: ");
+    scanf("%d", &distance);
+
+    from = from - 1; // Convert to array index
+    to = to - 1;
+
+    distances[from][to] = distance;
+    distances[to][from] = distance; // Make it symmetric
+
+    printf("Distance set successfully!\n");
+}
+
