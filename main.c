@@ -309,3 +309,28 @@ void inputDistance() {
     printf("Distance set successfully!\n");
 }
 
+void showDistances() {
+    int i, j;
+
+    if(cityCount == 0) {
+        printf("\nNo cities available!\n");
+        return;
+    }
+
+    printf("\n--- DISTANCE TABLE (km) ---\n");
+    printf("%-15s", "");
+
+    for(i = 0; i < cityCount; i++) {
+        printf("%-10s", cities[i]);
+    }
+    printf("\n");
+
+    for(i = 0; i < cityCount; i++) {
+        printf("%-15s", cities[i]);
+        for(j = 0; j < cityCount; j++) {
+            printf("%-10d", distances[i][j]);
+        }
+        printf("\n");
+    }
+}
+
