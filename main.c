@@ -365,11 +365,13 @@ void createDelivery()
 
     if(cityCount < 2) {
         printf("\nYou need at least 2 cities!\n");
+
         return;
     }
 
     if(deliveryCount >= MAX_DELIVERIES) {
         printf("\nMaximum delivery limit reached!\n");
+
         return;
     }
 
@@ -382,19 +384,50 @@ void createDelivery()
 
     if(from < 1 || from > cityCount || to < 1 || to > cityCount) {
         printf("Invalid city numbers!\n");
+
         return;
     }
 
-    if(from == to) {
+    if(from == to)
+        {
         printf("Source and destination cannot be same!\n");
+
         return;
     }
 
     from = from - 1;
     to = to - 1;
 
-    if(distances[from][to] == 0) {
+    if(distances[from][to] == 0)
+        {
         printf("Distance not set between these cities!\n");
+
         return;
     }
+
+
+     printf("Enter weight in kg: ");
+    scanf("%d", &weight);
+
+    printf("\nSelect vehicle:\n");
+    printf("1. Van (Capacity: 1000 kg)\n");
+    printf("2. Truck (Capacity: 5000 kg)\n");
+    printf("3. Lorry (Capacity: 10000 kg)\n");
+    printf("Enter choice: ");
+    scanf("%d", &vehicleChoice);
+
+    if(vehicleChoice < 1 || vehicleChoice > 3) {
+        printf("Invalid vehicle choice!\n");
+
+        return;
+    }
+
+    vehicleChoice = vehicleChoice - 1;
+
+    if(weight > vehicleCapacity[vehicleChoice]) {
+        printf("Weight exceeds vehicle capacity!\n");
+
+        return;
+    }
+
 
