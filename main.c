@@ -231,4 +231,18 @@ void renameCity() {
     printf("City renamed successfully!\n");
 }
 
+void showCities() {
+    int i;
+
+    if(cityCount == 0) {
+        printf("\nNo cities available!\n");
+        return;
+    }
+
+    printf("\n--- LIST OF CITIES ---\n");
+    for(i = 0; i < cityCount; i++) {
+        printf("%d. %s\n", i + 1, cities[i]);
+    }
+    printf("Total: %d cities\n", cityCount);
+}
 
