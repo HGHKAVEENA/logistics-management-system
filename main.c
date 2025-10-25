@@ -250,6 +250,7 @@ void distanceMenu() {
     int choice;
 
     while(1) {
+
         printf("\n--- DISTANCE MANAGEMENT ---\n");
         printf("1. Input/Edit distance\n");
         printf("2. Show distance table\n");
@@ -499,6 +500,66 @@ void createDelivery()
 
     printf("\nDelivery saved! Total deliveries: %d\n", deliveryCount);
 }
+
+void reportsMenu()
+ {
+    showReports();
+}
+
+void showReports()
+{
+    int i;
+    int totalDistance = 0;
+
+    double totalTime = 0;
+
+    double totalRevenue = 0;
+
+    double totalProfit = 0;
+
+    int minDistance, maxDistance;
+
+    if(deliveryCount == 0) {
+        printf("\nNo deliveries yet!\n");
+
+        return;
+    }
+
+    minDistance = deliveryDistance[0];
+    maxDistance = deliveryDistance[0];
+
+    for(i = 0; i < deliveryCount; i++) {
+        totalDistance = totalDistance + deliveryDistance[i];
+        totalTime = totalTime + estimatedTime[i];
+        totalRevenue = totalRevenue + customerCharge[i];
+        totalProfit = totalProfit + profit[i];
+
+        if(deliveryDistance[i] < minDistance) {
+            minDistance = deliveryDistance[i];
+        }
+        if(deliveryDistance[i] > maxDistance) {
+            maxDistance = deliveryDistance[i];
+        }
+    }
+
+
+    printf("       PERFORMANCE REPORTS\n");
+
+    printf("Total Deliveries: %d\n", deliveryCount);
+
+    printf("Total Distance: %d km\n", totalDistance);
+
+    printf("Average Time: %.2f hours\n", totalTime / deliveryCount);
+
+    printf("Total Revenue: %.2f LKR\n", totalRevenue);
+
+    printf("Total Profit: %.2f LKR\n", totalProfit);
+
+    printf("Shortest Route: %d km\n", minDistance);
+
+    printf("Longest Route: %d km\n", maxDistance);
+}
+
 
 
 
